@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "06ade4c0-9e60-4fbb-8346-430945a99652",
+		"name": "nlw06",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/users",
+			"item": [
+				{
+					"name": "Create Admin User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.equals(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Diogo Junqueira Geraldo\",\n    \"email\": \"diogojunqueirageraldo@gmail.com\",\n    \"isAdmin\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{domain}}:{{port}}/users",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Admin User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Diogo Junqueira Geraldo\",\n    \"email\": \"diogojunqueirageraldo@gmail.com\",\n    \"isAdmin\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{domain}}:{{port}}/users",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{domain}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "213"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d6f57a40-49df-461f-9c73-2e21fe9e7060\",\n    \"name\": \"Diogo Junqueira Geraldo\",\n    \"email\": \"diogojunqueirageraldo@gmail.com\",\n    \"isAdmin\": true,\n    \"createdAt\": \"2021-06-24T05:12:22.000Z\",\n    \"updatedAt\": \"2021-06-24T05:12:22.000Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
